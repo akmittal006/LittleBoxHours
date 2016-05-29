@@ -1,6 +1,7 @@
 package com.ankurmittal.littleboxhours;
 
 import android.content.Intent;
+import android.os.Build;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.espresso.Espresso;
 import android.support.test.espresso.IdlingResource;
@@ -187,7 +188,12 @@ public class MainActivityTest extends InstrumentationTestCase{
         //set picker time
         onView(Matchers.<View>instanceOf(TimePicker.class)).perform(PickerActions.setTime(19,19));
         //click ok
-        onView(withText("OK")).perform(click());
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            onView(withText("OK")).perform(click());
+
+        } else {
+            onView(withText("Done")).perform(click());
+        }
         // verify text on toEditText
         onView(withId(R.id.toEditText)).check(matches(withText("07:19 PM")));
         unregisterIdlingResource();
@@ -208,7 +214,12 @@ public class MainActivityTest extends InstrumentationTestCase{
         //set picker time
         onView(Matchers.<View>instanceOf(TimePicker.class)).perform(PickerActions.setTime(19,19));
         //click ok
-        onView(withText("OK")).perform(click());
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            onView(withText("OK")).perform(click());
+
+        } else {
+            onView(withText("Done")).perform(click());
+        }
         // verify text on toEditText
         onView(withId(R.id.fromEditText)).check(matches(withText("07:19 PM")));
         unregisterIdlingResource();
@@ -228,13 +239,23 @@ public class MainActivityTest extends InstrumentationTestCase{
         //set from picker time
         onView(Matchers.<View>instanceOf(TimePicker.class)).perform(PickerActions.setTime(19,19));
         //click ok
-        onView(withText("OK")).perform(click());
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            onView(withText("OK")).perform(click());
+
+        } else {
+            onView(withText("Done")).perform(click());
+        }
         //focus on toEditText
         onView(withId(R.id.toEditText)).perform(click());
         //set to picker time
         onView(Matchers.<View>instanceOf(TimePicker.class)).perform(PickerActions.setTime(19,19));
         //click ok
-        onView(withText("OK")).perform(click());
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            onView(withText("OK")).perform(click());
+
+        } else {
+            onView(withText("Done")).perform(click());
+        }
 
         // click on cancel fab
         onView(withId(R.id.cancelFab)).perform(click());
@@ -286,7 +307,12 @@ public class MainActivityTest extends InstrumentationTestCase{
         //set from picker time
         onView(Matchers.<View>instanceOf(TimePicker.class)).perform(PickerActions.setTime(19,19));
         //click ok
-        onView(withText("OK")).perform(click());
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            onView(withText("OK")).perform(click());
+
+        } else {
+            onView(withText("Done")).perform(click());
+        }
         //click on save icon fab
         onView(withId(R.id.editFab)).perform(click());
         //should update working hours
@@ -324,7 +350,12 @@ public class MainActivityTest extends InstrumentationTestCase{
         //set from picker time
         onView(Matchers.<View>instanceOf(TimePicker.class)).perform(PickerActions.setTime(19,19));
         //click ok
-        onView(withText("OK")).perform(click());
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            onView(withText("OK")).perform(click());
+
+        } else {
+            onView(withText("Done")).perform(click());
+        }
         //click on save icon fab
         onView(withId(R.id.editFab)).perform(click());
         //due to error fromEditText should display previous fetched data not "07:19 PM"
@@ -350,7 +381,12 @@ public class MainActivityTest extends InstrumentationTestCase{
         //set from picker time
         onView(Matchers.<View>instanceOf(TimePicker.class)).perform(PickerActions.setTime(19,19));
         //click ok
-        onView(withText("OK")).perform(click());
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            onView(withText("OK")).perform(click());
+
+        } else {
+            onView(withText("Done")).perform(click());
+        }
         //click on save icon fab
         onView(withId(R.id.editFab)).perform(click());
         //due to error fromEditText should display dummy data not "07:19 PM"
