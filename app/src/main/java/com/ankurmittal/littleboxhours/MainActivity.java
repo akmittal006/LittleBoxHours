@@ -302,7 +302,8 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 //simulate network waiting time
                 try {
-                    Thread.sleep(3 * 1000);
+                    //sleep for 1 sec
+                    Thread.sleep(1* 1000);
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
@@ -325,7 +326,7 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 //simulate network waiting time
                 try {
-                    Thread.sleep(3 * 1000);
+                    Thread.sleep(1* 1000);
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
